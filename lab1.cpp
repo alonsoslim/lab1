@@ -39,6 +39,7 @@ using namespace std;
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <GL/glx.h>
+#include "fonts.h"
 
 const int MAX_PARTICLES = 4000;
 const float GRAVITY     = 0.1;
@@ -207,6 +208,8 @@ void init_opengl(void)
 	glOrtho(0, g.xres, 0, g.yres, -1, 1);
 	//Set the screen background color
 	glClearColor(0.1, 0.1, 0.1, 1.0);
+    glEnable(GL_TEXTURE_2D);
+    initialize_fonts();
 }
 
 void makeParticle(int x, int y)
@@ -322,11 +325,12 @@ void movement()
 
 void render()
 {
+    Rect r;
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw shapes...
 	//draw the box
 	Shape *s;
-	glColor3ub(90,140,90);
+	glColor3ub(255,102,102);
 	s = &g.box;
 	glPushMatrix();
 	glTranslatef(s->center.x, s->center.y, s->center.z);
@@ -341,13 +345,19 @@ void render()
 	glEnd();
 	glPopMatrix();
 	//
-	//Draw particles here
+    // Requirments label over box
+    r.bot = 195;
+    r.left = 400;
+    r.center = 0;
+    ggprint8b(&r, 16, 0x00ffffff, "Requirements");
+   
+    //Draw particles here
 	//if (g.n > 0) {
 		//There is at least one particle to draw.
 	for(int i=0; i<g.n; i++){
 
 		glPushMatrix();
-		glColor3ub(150,160,220);
+		glColor3ub(0,255,255);
 		Vec *c = &g.particle[i].s.center;
 		w = h = 2;
 		glBegin(GL_QUADS);
