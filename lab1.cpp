@@ -1,3 +1,6 @@
+//Updated by: Alonso Gomez
+//Date: 09/24/19
+//HW 01
 //
 //modified by: Alonso Gomez
 //date: 08/27/2019
@@ -374,7 +377,6 @@ void render()
     ggprint8b(&r, 16, 0x00ffffff, "Maintenance");
     
     //Draw particles here
-	//if (g.n > 0) {
     //There is at least one particle to draw.
 	for (int i=0; i<g.n; i++) {
 		glPushMatrix();
@@ -409,9 +411,4 @@ void render()
 	//Draw your 2D text here
 
 }
-
-
-
-
-
 
