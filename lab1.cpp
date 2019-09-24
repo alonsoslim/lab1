@@ -268,7 +268,7 @@ void check_mouse(XEvent *e)
 			//Code placed here will execute whenever the mouse moves.
 
 			int y =g.yres - e->xbutton.y;
-			for (int i=0; i<4; i++){
+			for (int i=0; i<4; i++) {
 			    makeParticle(e->xbutton.x, y);
 			}
 		}
@@ -300,7 +300,7 @@ void movement()
 {
 	if (g.n <= 0)
 		return;
-	for (int i=0; i<g.n; i++){
+	for (int i=0; i<g.n; i++) {
 		Particle *p = &g.particle[i];
 		p->s.center.x += p->velocity.x;
 		p->s.center.y += p->velocity.y;
@@ -375,11 +375,10 @@ void render()
     
     //Draw particles here
 	//if (g.n > 0) {
-		//There is at least one particle to draw.
-	for(int i=0; i<g.n; i++){
-
+    //There is at least one particle to draw.
+	for (int i=0; i<g.n; i++) {
 		glPushMatrix();
-        if (i % 2 == 1){
+        if (i % 2 == 1) {
             g.particle[i].r = 20;
             g.particle[i].g = 75;
             g.particle[i].b = 255;
@@ -394,7 +393,6 @@ void render()
             g.particle[i].g = 245;
             g.particle[i].b = 255;
         }
-
 		glColor3ub(g.particle[i].r, g.particle[i].g, g.particle[i].b);
         Vec *c = &g.particle[i].s.center;
 		w[0] = h[0] = 2;
@@ -409,14 +407,6 @@ void render()
 	
 	//
 	//Draw your 2D text here
-
-
-
-
-
-
-
-
 
 }
 
