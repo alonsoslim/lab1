@@ -378,8 +378,8 @@ void render()
     
     //Draw particles here
     //There is at least one particle to draw.
-	for (int i=0; i<g.n; i++) {
-		glPushMatrix();
+    for (int i=0; i<g.n; i++) {
+        glPushMatrix();
         if (i % 2 == 1) {
             g.particle[i].r = 20;
             g.particle[i].g = 75;
@@ -395,17 +395,17 @@ void render()
             g.particle[i].g = 245;
             g.particle[i].b = 255;
         }
-		glColor3ub(g.particle[i].r, g.particle[i].g, g.particle[i].b);
+        glColor3ub(g.particle[i].r, g.particle[i].g, g.particle[i].b);
         Vec *c = &g.particle[i].s.center;
-		w[0] = h[0] = 2;
-		glBegin(GL_QUADS);
-			glVertex2i(c->x-w[0], c->y-h[0]);
-			glVertex2i(c->x-w[0], c->y+h[0]);
-			glVertex2i(c->x+w[0], c->y+h[0]);
-			glVertex2i(c->x+w[0], c->y-h[0]);
-		glEnd();
-		glPopMatrix();
-	}
+        w[0] = h[0] = 2;
+        glBegin(GL_QUADS);
+            glVertex2i(c->x-w[0], c->y-h[0]);
+            glVertex2i(c->x-w[0], c->y+h[0]);
+            glVertex2i(c->x+w[0], c->y+h[0]);
+            glVertex2i(c->x+w[0], c->y-h[0]);
+        glEnd();
+        glPopMatrix();
+    }
 	
 	//
 	//Draw your 2D text here
